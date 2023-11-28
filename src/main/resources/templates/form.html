@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Form</title>
+        <link rel="stylesheet" th:href="@{/css/index.css}"/>
+    </head>
+    <body>
+    <h1>Greetings!</h1>
+        <div>
+            <form th:action="@{/answerForm}" th:object="${student}" method="POST">
+                <div  class=".form">
+                    <div>
+                        <label>Input your first name:</label>
+                        <input type="text" placeholder="Your first name" th:field="*{firstName}" />
+                    </div>
+                    <br/>
+                    <div class=".form">
+                        <label>Input your last name:</label>
+                        <input type="text" placeholder="Your last name" th:field="*{lastName}" />
+                    </div>
+                    <br/>
+                   <div class=".form">
+                       <label>Select your country:</label>
+                       <select th:field="*{country}">
+                           <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"/>
+                       </select>
+                   </div>
+                    <br/>
+                    <div class=".form">
+                        <label>Select your favourite language:</label>
+                        <input type="radio" th:each="tempLang : ${langs}" th:value="${tempLang}" th:text="${tempLang}" th:field="*{lang}"/>
+                    </div>
+                    <br/>
+                    <div class=".form">
+                        <label>Select your favourite OS:</label>
+                        <input type="checkbox" th:each="tempOs : ${os}" th:value="${tempOs}" th:text="${tempOs}" th:field="*{os}"/>
+                    </div>
+                    <br/>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

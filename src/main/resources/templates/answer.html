@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Answer</title>
+</head>
+<body>
+<div>Greetings!</div>
+<div th:text="'Nice to meet you, ' + ${student.firstName} + ' ' + ${student.lastName} + ' from ' + ${student.country} + ' who loves ' + ${student.lang} + '!'" />
+<p>Your favourite Os</p>
+<ul >
+    <li th:each="tempOs : ${student.os}" th:text="${tempOs}"/>
+</ul>
+</body>
+</html>
